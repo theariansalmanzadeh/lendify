@@ -5,12 +5,14 @@ import ChainSupport from "./chainSupport";
 import AddPostionModal from "./AddPostionModal.js";
 import { useSelector } from "react-redux";
 import { createContract } from "../utils/helper";
+import TransactionLoader from "./TransactionLoader.js";
 
 function LiquidityProvider() {
   const [addPosition, setAddPosition] = useState(null);
   const [positionPool, setPositionPool] = useState([]);
   const [childContractAddress, setChildContractAddress] = useState("");
   const [isDeadline, setIsDeadline] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [refresh, setRefresh] = useState(true);
 
   const provider = useSelector((state) => state.web3.provider);
@@ -22,12 +24,11 @@ function LiquidityProvider() {
   useEffect(() => {
     if (!refresh) return;
     if (accountAddress === "") return;
-    console.log(contractFactory);
 
     (async () => {
       try {
         const lenderStatus = await contractFactory.showLender();
-        console.log({ ...lenderStatus });
+
         setPositionPool([...positionPool, { ...lenderStatus }]);
       } catch (e) {}
     })();
@@ -48,6 +49,7 @@ function LiquidityProvider() {
     setAddPosition(true);
   };
 
+  console.log(positionPool);
   return (
     <React.Fragment>
       <ChainSupport />
@@ -55,8 +57,10 @@ function LiquidityProvider() {
         <AddPostionModal
           refreshPage={setRefresh}
           closeHander={setAddPosition}
+          setIsLoading={setIsLoading}
         />
       )}
+      {isLoading && <TransactionLoader />}
       <div className={styles.lpSection}>
         <h3>Pools</h3>
         <div className={styles.LPwrapper}>
@@ -69,7 +73,15 @@ function LiquidityProvider() {
             />
           </div>
           {accountAddress !== "" && (
-            <button onClick={setPositionHandler} className={styles.liqudity}>
+            <button
+              disabled={!positionPool.available}
+              onClick={setPositionHandler}
+              className={
+                positionPool.available
+                  ? `${styles.liqudity}`
+                  : `${styles.liqudity} ${styles.deactive}`
+              }
+            >
               Add liqudity
             </button>
           )}

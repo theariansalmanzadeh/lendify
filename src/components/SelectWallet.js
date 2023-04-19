@@ -11,7 +11,6 @@ import {
 import styles from "../styles/sass/layout/sellectWallet.module.scss";
 import Loading from "./Loading.js";
 import { chainID } from "../utils/contractInfo";
-import { getAllNFTs, getNftData } from "../utils/helper";
 
 function SelectWallet({ toggleModal }) {
   const [isLoading, setIsLoading] = useState(false);

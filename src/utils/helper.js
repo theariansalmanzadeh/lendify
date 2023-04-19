@@ -68,11 +68,19 @@ export const getNftData = async (contractAddress, tokenId) => {
 };
 
 export const getNftImg = async (NFTs) => {
+  console.log(NFTs);
   const img = await getMetaData(NFTs.uri);
 
   // console.log(img);
 
   return img;
+};
+
+export const getImgNftByContract = async (contractAddress, tokenId) => {
+  const { image } = await getNftData(contractAddress, tokenId);
+
+  console.log(image);
+  return image;
 };
 
 export const getMetaData = async (uri) => {

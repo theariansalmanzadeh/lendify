@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import styles from "../styles/sass/components/addLiquidityModal.module.scss";
 import { ethers } from "ethers";
 
-function AddPostionModal({ closeHander, refreshPage }) {
+function AddPostionModal({ closeHander, refreshPage, setIsLoading }) {
   const [iserror, setIsError] = useState(false);
 
   const valueRef = useRef();
@@ -20,6 +20,8 @@ function AddPostionModal({ closeHander, refreshPage }) {
     console.log(valueRef.current.value);
     if (Number(valueRef.current.value) === 0) return;
 
+    setIsLoading(true);
+
     const valueEth = valueRef.current.value;
     console.log(ethers.utils.parseEther(valueEth));
     const res = await factoryContract.liquidityProvider({
@@ -28,6 +30,8 @@ function AddPostionModal({ closeHander, refreshPage }) {
     await res.wait();
 
     valueRef.current.value = "";
+
+    setIsLoading(false);
     closeHander(false);
     refreshPage(true);
   };

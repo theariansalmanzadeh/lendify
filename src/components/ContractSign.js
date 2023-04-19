@@ -6,12 +6,13 @@ import {
   timeStampToDay,
   createNftContract,
   getNftImg,
+  getImgNftByContract,
 } from "../utils/helper";
 import { useSelector } from "react-redux";
 import styles from "../styles/sass/layout/contractSign.module.scss";
 import LoadingSignedContract from "./LoadingSignedContract.js";
 
-function ContractSign() {
+function ContractSign({ setLoading }) {
   const [contractInfos, setContractInfos] = useState({
     address: "",
     lenderAddress: "",
@@ -24,22 +25,17 @@ function ContractSign() {
   const [refresh, setRefresh] = useState(true);
   const [time, setTime] = useState({ now: 0, deadline: 0 });
 
-  const nftDetails = useSelector(
-    ({ contractInfo }) => contractInfo.selectedNft
-  );
   const lenderAddress = useSelector(({ web3 }) => web3.accountAddress);
   const factoryContract = useSelector(
     ({ contractInfo }) => contractInfo.contractQueen
   );
-  const ethLenderAddress = useSelector(
-    ({ contractInfo }) => contractInfo.ethLenderAddress
-  );
+
   const provider = useSelector(({ web3 }) => web3.provider);
   const signer = useSelector(({ web3 }) => web3.signer);
   const nftOwnerAddress = useSelector(({ web3 }) => web3.accountAddress);
 
   const nftTransferHandler = async () => {
-    console.log("ok");
+    setLoading(true);
     const contractAddress = await factoryContract.contractInfoNftLender(
       lenderAddress
     );
@@ -49,9 +45,7 @@ function ContractSign() {
     const res = await nftContract
       .connect(signer)
       .transferFrom(nftOwnerAddress, contractAddress, contractInfos.tokenId);
-    // console.log(nftDetails);
-    // const owner = await nftContract.connect(signer).ownerOf(2);
-    // console.log(owner);
+
     await res.wait();
 
     //get the amount of ETH
@@ -60,10 +54,12 @@ function ContractSign() {
 
     await res2.wait();
 
+    setLoading(false);
     setRefresh(true);
   };
 
   const refundContractHandler = async () => {
+    setLoading(true);
     console.log("ok");
     const contractAddress = await factoryContract.contractInfoNftLender(
       lenderAddress
@@ -79,14 +75,12 @@ function ContractSign() {
 
     console.log(initialValue, newValue);
 
-    // const bal = await factoryContract.getBalance(contractAddress);
-    // console.log(bal);
-
     const res = await contract.connect(signer).refundLoan({
       value: newValue,
     });
     await res.wait();
 
+    setLoading(false);
     setRefresh(true);
   };
 
@@ -116,13 +110,16 @@ function ContractSign() {
           .ownerOf(contractDetails[2]);
         setIsNftOwner(ownerNft !== lenderAddress ? true : false);
 
-        const imgUrl = await getNftImg(contractDetails[0], contractDetails[2]);
+        const imgUrl = await getImgNftByContract(
+          contractDetails[0],
+          contractDetails[2]
+        );
 
         setContractInfos({
           address: contractAddress,
           lenderAddress: contractDetails[1],
           nftContractAddress: contractDetails[0],
-          tokenId: contractDetails[2],
+          tokenId: String(contractDetails[2]),
           img: imgUrl,
         });
         setIsLoading(false);
@@ -150,7 +147,9 @@ function ContractSign() {
         <p>NFT :</p>
         <div>
           <div className={styles.nftWrapper}>
-            <img src={contractInfos.img} alt="nft borrowed" />
+            {contractInfos.img && (
+              <img src={contractInfos.img} alt="nft borrowed" />
+            )}
           </div>
           <p>
             NFT contract:{" "}
@@ -158,6 +157,9 @@ function ContractSign() {
               ? "-"
               : contractInfos.nftContractAddress}
           </p>
+          {contractInfos.tokenId !== "" && (
+            <p>Token ID : {contractInfos.tokenId}</p>
+          )}
         </div>
         <button
           disabled={isNftOwner}

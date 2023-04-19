@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { setNftLenderContract } from "../store/contractNftSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import loadingStyle from "../styles/sass/components/loadingCom.module.scss";
 import styles from "../styles/sass/layout/SelectedNft.module.scss";
-import { ethers } from "ethers";
-import { getNftData } from "../utils/helper";
+import TransactionLoader from "./TransactionLoader.js";
 
 function SelectedNft() {
   const navigate = useNavigate();
@@ -98,18 +96,7 @@ function SelectedNft() {
         >
           Sign Contract
         </button>
-        {isLoading && (
-          <div className={loadingStyle["lds-roller"]}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        )}
+        {isLoading && <TransactionLoader />}
       </div>
     </div>
   );

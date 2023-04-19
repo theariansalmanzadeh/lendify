@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import styles from "../styles/sass/pages/dashboard.module.scss";
 import avatar from "../assets/avatar.png";
 import ContractSign from "./ContractSign.js";
+import TransactionLoader from "./TransactionLoader.js";
 
 function DashBoard() {
   const [isContract, setIsContract] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const factoryContract = useSelector(
     ({ contractInfo }) => contractInfo.contractQueen
@@ -23,6 +25,7 @@ function DashBoard() {
 
   return (
     <div className={styles.dashboard}>
+      {isLoading && <TransactionLoader />}
       <div className={styles.accountInfo}>
         <div className={styles.avatarWrapper}>
           <img src={avatar} alt="avatar" />
@@ -54,7 +57,7 @@ function DashBoard() {
       </div>
       <div className={styles.contractWrapper}>
         <div className={styles.contract}>
-          <ContractSign />
+          <ContractSign setLoading={setIsLoading} />
         </div>
       </div>
     </div>
