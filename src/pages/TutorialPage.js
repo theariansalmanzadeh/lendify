@@ -57,7 +57,7 @@ function TutorialPage() {
         <p>
           factory contract address :{" "}
           <Link to="#">
-            <span> 0x4783463763637</span>
+            <span> 0x73cD2093ff33460F10EC72E80386E297E866C7cA</span>
           </Link>
         </p>
       </div>

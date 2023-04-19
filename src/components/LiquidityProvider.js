@@ -6,6 +6,7 @@ import AddPostionModal from "./AddPostionModal.js";
 import { useSelector } from "react-redux";
 import { createContract } from "../utils/helper";
 import TransactionLoader from "./TransactionLoader.js";
+import { Link } from "react-router-dom";
 
 function LiquidityProvider() {
   const [addPosition, setAddPosition] = useState(null);
@@ -63,6 +64,9 @@ function LiquidityProvider() {
       {isLoading && <TransactionLoader />}
       <div className={styles.lpSection}>
         <h3>Pools</h3>
+        <Link to="./totalUser" className={styles.link}>
+          All Pools
+        </Link>
         <div className={styles.LPwrapper}>
           <div className={styles.box}>
             <DisplayLiqudity

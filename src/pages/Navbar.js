@@ -29,22 +29,42 @@ function Navbar() {
             &times;
           </button>
           <li>
-            <NavLink to="/home" className={linkClasses} end>
+            <NavLink
+              to="/home"
+              onClick={() => setIsshowMenu(false)}
+              className={linkClasses}
+              end
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/platform" className={linkClasses} end>
+            <NavLink
+              to="/platform"
+              onClick={() => setIsshowMenu(false)}
+              className={linkClasses}
+              end
+            >
               Platform
             </NavLink>
           </li>
           <li>
-            <NavLink to="/lp" className={linkClasses} end>
+            <NavLink
+              to="/lp"
+              onClick={() => setIsshowMenu(false)}
+              className={linkClasses}
+              end
+            >
               Liquidity Provider
             </NavLink>
           </li>
           <li>
-            <NavLink className={linkClasses} to="/how-to" end>
+            <NavLink
+              className={linkClasses}
+              onClick={() => setIsshowMenu(false)}
+              to="/how-to"
+              end
+            >
               How to
             </NavLink>
           </li>

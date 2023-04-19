@@ -9,6 +9,18 @@
   & > * {
     box-sizing: border-box;
   }
+  & .link {
+    margin: 2rem 0 0 8rem;
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    background-color: $secondaryLight;
+    color: $whitePrimaryCol;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
   & h3 {
     font-size: 2.4rem;
     margin: 0;
@@ -21,9 +33,10 @@
   }
   & .LPwrapper {
     width: 100%;
-    height: 80vh;
+    height: 60vh;
+    margin-top: 3rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     position: relative;
     & .box {
