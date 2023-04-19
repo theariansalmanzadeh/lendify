@@ -30,7 +30,7 @@ function LiquidityProvider() {
       try {
         const lenderStatus = await contractFactory.showLender();
 
-        setPositionPool([...positionPool, { ...lenderStatus }]);
+        setPositionPool({ ...lenderStatus });
       } catch (e) {}
     })();
 
@@ -68,6 +68,7 @@ function LiquidityProvider() {
           All Pools
         </Link>
         <div className={styles.LPwrapper}>
+          <p className={styles.heading}>Your Liquidities</p>
           <div className={styles.box}>
             <DisplayLiqudity
               userAddress={accountAddress}

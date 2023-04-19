@@ -34,8 +34,8 @@ function TotalLiquidity() {
         {!isConnected && <p>should first connect your Wallet</p>}
         {isConnected && (
           <ul>
-            {totalProviders.map((lp) => (
-              <li>
+            {totalProviders.map((lp, indx) => (
+              <li key={indx}>
                 <p>
                   <span>Address provider :</span>
                   {lp.addr}

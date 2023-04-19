@@ -34,27 +34,21 @@ function DisplayLiqudity({ position, deadline, contractAddress, userAddress }) {
     return (
       <div className={styles.liquidityAddress}>
         <ul>
-          {position.map((position, indx) => {
-            return (
-              <li key={indx}>
-                <div className={styles.index}>{indx + 1}</div>
-                <div className={styles.details}>
-                  <p>
-                    amount : {ethers.utils.formatEther(position.amount)} Eth
-                  </p>
-                  <p>state : {position.available ? "available" : "in use"}</p>
-                  {!position.available && (
-                    <button
-                      onClick={claimNftHandler}
-                      disabled={!deadline ? true : false}
-                    >
-                      Claim NFT
-                    </button>
-                  )}
-                </div>
-              </li>
-            );
-          })}
+          <li>
+            <div className={styles.index}>1</div>
+            <div className={styles.details}>
+              <p>amount : {ethers.utils.formatEther(position.amount)} Eth</p>
+              <p>state : {position.available ? "available" : "in use"}</p>
+              {!position.available && (
+                <button
+                  onClick={claimNftHandler}
+                  disabled={!deadline ? true : false}
+                >
+                  Claim NFT
+                </button>
+              )}
+            </div>
+          </li>
         </ul>
       </div>
     );
