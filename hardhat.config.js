@@ -18,10 +18,8 @@ module.exports = {
       chainId: 1337,
     },
     goerli: {
-      url: "https://goerli.infura.io/v3/3a252697a2194109b8fa47e46e439ac0",
-      accounts: [
-        "54868b038d58932b0da3b3f1ec6a854d013910a9418cd8f8b11ffafe99bc8db7",
-      ],
+      url: "",
+      accounts: [""],
     },
   },
   etherscan: {
