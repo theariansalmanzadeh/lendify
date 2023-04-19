@@ -1,0 +1,103 @@
+@import "../utils/variables.scss";
+
+.navBar {
+  background-color: $secondaryCol;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  & ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+    @media screen and (max-width: 760px) {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      background-color: $secondaryCol;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      padding-left: 0rem;
+      box-sizing: border-box;
+      transform: translateX(-100%);
+      transition: all 0.2s linear;
+      &.active {
+        transform: translateX(0);
+        transition: all 0.2s linear;
+      }
+      & li {
+        width: 100%;
+        padding: 1rem 0rem;
+        border-bottom: 1px solid $fourthCol;
+      }
+    }
+    & .closeBtnMenu {
+      display: none;
+      @media screen and (max-width: 760px) {
+        display: block;
+        font-size: 3rem;
+        background-color: transparent;
+        color: $whitePrimaryCol;
+        border: none;
+        margin: 1rem 1rem 0 0;
+        align-self: flex-end;
+      }
+    }
+  }
+  & .hamburgerMenu {
+    display: none;
+    @media screen and (max-width: 760px) {
+      display: block;
+      color: $whiteDarkCol;
+      background-color: $secondaryLight;
+      padding: 1rem 1.6rem;
+      border: none;
+      align-self: center;
+      box-sizing: border-box;
+    }
+  }
+  & .navbarLink {
+    color: $whitePrimaryCol;
+    padding: 0.4rem 1rem;
+    text-decoration: none;
+    position: relative;
+    @media screen and (max-width: 760px) {
+      width: 100%;
+      display: inline-block;
+    }
+
+    &::after {
+      content: "";
+      background-color: $thirdCol;
+      height: 0.1rem;
+      display: inline-block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      transition: all 0.2s linear;
+    }
+    &.active {
+      color: $thirdCol;
+      font-style: italic;
+    }
+    &:hover::after {
+      width: 100%;
+      transition: all 0.2s linear;
+    }
+  }
+  & .logoWrapper {
+    margin-right: 5rem;
+    & .logoName {
+      transform: rotate(-25deg);
+      height: 100%;
+      margin-top: 1rem;
+      font-size: 2rem;
+      font-family: "Dancing Script", sans-serif;
+      color: $whitePrimaryCol;
+    }
+  }
+}

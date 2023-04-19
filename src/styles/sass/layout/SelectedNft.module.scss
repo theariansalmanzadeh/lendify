@@ -1,0 +1,69 @@
+@import "../utils/variables.scss";
+@import "../components/button.module.scss";
+
+.selectLenderSection {
+  width: 100%;
+  height: 100%;
+  color: $whitePrimaryCol;
+
+  & .nftImgWrapper {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards ease-in-out;
+    & img {
+      width: 50%;
+      border-radius: 0.8rem;
+      object-fit: cover;
+      box-shadow: 0px 1rem 1rem rgba(0, 0, 0, 0.3);
+    }
+  }
+  & .nftDetails {
+    display: flex;
+    flex-direction: column;
+    & p {
+      opacity: 0;
+      animation: fadeIn 1s 0.2s forwards ease-in-out;
+      display: inline-block;
+      & span {
+        opacity: 0;
+        color: $thirdCol;
+        animation: fadeIn 1s 0.4s forwards ease-in-out;
+        display: inline-block;
+      }
+    }
+  }
+  & .signContractWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    & .signContract {
+      @include Button;
+      align-self: flex-end;
+      background-color: $thirdCol;
+      color: $primaryCol;
+    }
+  }
+  & .deactive {
+    color: $whitePrimaryCol;
+    background-color: $grayPrimaryCol;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+    border: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}

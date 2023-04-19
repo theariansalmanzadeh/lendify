@@ -1,56 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import HomePage from "./pages/HomePage.js";
+import BorrowPage from "./pages/BorrowPage.js";
+import LiquidityProviderPage from "./pages/LiquidityProviderPage.js";
+import TutorialPage from "./pages/TutorialPage.js";
+import Navbar from "./pages/Navbar.js";
+import NotFound from "./pages/NotFound.js";
+import Borrow from "./components/Borrow.js";
+import DashBoard from "./components/DashBoard.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/" end element={<Navigate to="/home" />} />
+          <Route path="/platform" element={<BorrowPage />}>
+            <Route path="/platform" element={<Borrow />} />
+            <Route path="/platform/dashboard" end element={<DashBoard />} />
+          </Route>
+          <Route path="/lp" element={<LiquidityProviderPage />} />
+          <Route path="/how-to" element={<TutorialPage />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" elemnet={<Navigate to="/home" />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

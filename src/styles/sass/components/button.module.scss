@@ -1,0 +1,16 @@
+@import "../utils/variables.scss";
+
+@mixin Button {
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+  background-color: $primaryCol;
+  color: $thirdCol;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  &:hover {
+    color: $fourthCol;
+    outline: 1px solid $fourthCol;
+  }
+}

@@ -1,0 +1,88 @@
+@import "../utils/variables.scss";
+
+.TutorialPage {
+  margin-top: 0;
+  // height: 90vh;
+  background-color: $secondaryDark;
+  padding: 1rem 0rem;
+  & h3 {
+    color: $fourthCol;
+    margin: 0;
+    padding: 2.5rem 0 2rem 1rem;
+    font-size: 2.4rem;
+  }
+  & p {
+    color: $whitePrimaryCol;
+  }
+  .infoWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 4rem;
+    @media screen and (max-width: 760px) {
+      flex-direction: column;
+      width: 90%;
+      gap: 2rem;
+      margin: 0 auto 2rem auto;
+    }
+    & .card {
+      width: 25%;
+      box-sizing: border-box;
+      padding: 0rem 1rem;
+      line-height: 2.2rem;
+      font-size: 1.2rem;
+      border-radius: 1rem;
+      background-color: $primaryCol;
+      box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.3);
+      @media screen and (max-width: 760px) {
+        width: 100%;
+      }
+    }
+    & .iconWrapper {
+      width: 90%;
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 1rem;
+      & .icon {
+        color: $whitePrimaryCol;
+        font-size: 2rem;
+      }
+    }
+    & .imgWrapper {
+      width: 30%;
+      border-radius: 0.8rem;
+      overflow: hidden;
+      align-self: center;
+      & img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.detailsSection {
+  background-color: $secondaryDark;
+  padding: 1rem 0rem;
+  position: relative;
+  & h3 {
+    color: $fourthCol;
+    margin: 0;
+    padding: 2.5rem 0 2rem 1rem;
+    font-size: 2.4rem;
+  }
+  & p {
+    margin-left: 2rem;
+    color: $whitePrimaryCol;
+    & a {
+      text-decoration: none;
+      transition: all 0.2s ease;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.5rem;
+      &:hover {
+        background-color: $secondaryLight;
+      }
+    }
+    & span {
+      color: $fourthCol;
+    }
+  }
+}

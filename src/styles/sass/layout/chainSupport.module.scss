@@ -1,0 +1,46 @@
+@import "../utils/variables.scss";
+
+.blockchainInfo {
+  background-color: $secondaryCol;
+  box-sizing: border-box;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  padding: 1rem 2rem 1rem 2rem;
+  & .chainDetails {
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    margin: 0;
+    height: 100%;
+    background-color: $secondaryDark;
+    color: $whiteDarkCol;
+    transition: color 0.5s ease;
+    &:hover {
+      color: $whitePrimaryCol;
+    }
+    &Btn {
+      padding: 0rem 1rem;
+      display: flex;
+      align-items: center;
+      border-radius: 1rem;
+      margin: 0;
+      height: 100%;
+      background-color: $secondaryDark;
+      color: $whiteDarkCol;
+      transition: all 0.5s ease;
+
+      border: none;
+      &:hover {
+        outline: 1px solid $fourthCol;
+        color: $whitePrimaryCol;
+      }
+    }
+    & p {
+      margin: 0rem;
+    }
+  }
+}

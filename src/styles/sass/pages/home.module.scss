@@ -1,0 +1,50 @@
+@import "../utils/variables.scss";
+.homepage {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-image: linear-gradient(
+      to right,
+      rgba($primaryCol, 0.6) 0% 40%,
+      rgba($primaryCol, 0.7) 45% 50%,
+      rgba($primaryCol, 0.8) 60% 70%,
+      rgba($primaryCol, 0.9) 80% 100%
+    ),
+    url(../../../../public/images/homepage.png);
+  background-size: contain;
+  & div > * {
+    margin: 0;
+    padding: 0;
+  }
+  & h1 {
+    color: $thirdLightCol;
+    font-family: "Dancing script";
+    font-size: 4rem;
+  }
+  & p {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    color: $thirdCol;
+    font-family: "caveat";
+  }
+  & button {
+    margin-top: 3rem;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+    color: $thirdCol;
+    background-color: $secondaryCol;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .homepage {
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+  }
+}

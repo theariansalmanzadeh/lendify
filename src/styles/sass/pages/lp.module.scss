@@ -1,0 +1,122 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+@import "../components/button.module.scss";
+
+.lpSection {
+  width: 100%;
+  height: 90vh;
+  @include lendingPage;
+  & > * {
+    box-sizing: border-box;
+  }
+  & h3 {
+    font-size: 2.4rem;
+    margin: 0;
+    padding-left: 5rem;
+    padding-top: 2rem;
+    color: $thirdCol;
+    @media screen and (max-width: 760px) {
+      padding-left: 2rem;
+    }
+  }
+  & .LPwrapper {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    & .box {
+      width: 50%;
+      height: 45vh;
+      border-radius: 1rem;
+      box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.3);
+      background-color: $primaryCol;
+      color: $whitePrimaryCol;
+      overflow: hidden;
+      @media screen and (max-width: 760px) {
+        width: 90%;
+        margin: 0 auto;
+      }
+      .liquidityAddress {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          width: 0.5rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          border-radius: 1rem;
+          background-color: $whiteDarkCol;
+          opacity: 0.8;
+        }
+
+        & uL {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        & ul li {
+          list-style: none;
+          border-bottom: 1px solid $thirdCol;
+          padding-left: 2rem;
+          height: 8rem;
+          display: flex;
+          & .index {
+            flex-basis: 10%;
+            height: 100%;
+            padding-left: 0.5rem;
+            color: $thirdCol;
+          }
+          & .details {
+            height: 100%;
+            & p {
+              margin-bottom: 1rem;
+              margin-top: 0.5rem;
+            }
+            & button {
+              padding: 0.5rem 0.8rem;
+              margin: 0 0 0 1rem;
+            }
+          }
+        }
+      }
+    }
+    & .liqudity {
+      position: absolute;
+      right: 25%;
+      top: 14%;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 1rem;
+      background-color: $secondaryLight;
+      color: $whitePrimaryCol;
+      border: none;
+      cursor: pointer;
+      @media screen and (max-width: 760px) {
+        right: 10%;
+        top: 10%;
+        width: 80%;
+        padding: 1.2rem 0rem;
+      }
+    }
+  }
+}
+
+.noLiquidity {
+  box-sizing: border-box;
+  margin-right: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  // justify-content: center;
+  color: $whitePrimaryCol;
+  display: flex;
+  & span {
+    color: $thirdCol;
+  }
+}

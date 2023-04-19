@@ -1,0 +1,16 @@
+.platform {
+  width: 50rem;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+    box-shadow: 10rem 10rem 2rem rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .platform {
+    width: 20rem;
+  }
+}

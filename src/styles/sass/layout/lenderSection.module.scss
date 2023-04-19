@@ -1,0 +1,38 @@
+@import "../utils/variables.scss";
+
+.lenderSection {
+  width: 100%;
+  height: 90%;
+  border: 2px solid $thirdCol;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  color: $whiteDarkCol;
+  & p {
+    margin-left: 1rem;
+  }
+  & div {
+    position: relative;
+  }
+  & ul {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    & li {
+      box-sizing: border-box;
+      width: 100%;
+      border: 1px solid $thirdCol;
+      padding: 0rem 0.5rem;
+      cursor: pointer;
+      &:hover {
+        border: 2px solid $fourthCol;
+      }
+    }
+    & li.selected {
+      border: 2px solid $fourthCol;
+    }
+  }
+}

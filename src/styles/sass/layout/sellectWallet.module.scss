@@ -1,0 +1,62 @@
+@import "../utils/variables.scss";
+
+.selectWallet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40vh;
+  background-image: linear-gradient(to bottom, $secondaryDark, $secondaryCol);
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  @media screen and (max-width: 760px) {
+    width: 90%;
+  }
+  & .closeBtn {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    background-color: transparent;
+    color: $whiteDarkCol;
+    border: none;
+    align-self: flex-end;
+    &:hover {
+      color: $fourthCol;
+    }
+    @media screen and (max-width: 760px) {
+      font-size: 3rem;
+    }
+  }
+  & div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    height: 60%;
+    width: 100%;
+    flex-direction: column;
+    & button {
+      width: 80%;
+      padding: 0.5rem 0rem;
+      border-radius: 1rem;
+      background-color: $secondaryDark;
+      color: $fourthCol;
+      cursor: pointer;
+      border: 1px solid $fourthCol;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      & img {
+        width: 2rem;
+      }
+    }
+  }
+  & .disabledWallet {
+    background-color: $grayPrimaryCol;
+    color: $whitePrimaryCol;
+    cursor: not-allowed;
+  }
+}
