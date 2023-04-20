@@ -14,7 +14,7 @@ function TransactionLoader() {
         <div></div>
         <div></div>
       </div>
-      <p>please until transaction</p>
+      <p>please wait until transaction</p>
     </div>
   );
 }

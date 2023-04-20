@@ -88,6 +88,12 @@
       width: 100%;
       transition: all 0.2s linear;
     }
+    @media screen and (max-width: 768px) {
+      &::after {
+        content: "";
+        display: none;
+      }
+    }
   }
   & .logoWrapper {
     margin-right: 5rem;

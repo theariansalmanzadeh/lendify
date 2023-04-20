@@ -35,12 +35,13 @@ function DisplayNfts() {
     if (!elem.classList.contains("nft")) return;
 
     const indx = elem.getAttribute("data-set");
+    console.log(nftCollection[indx]);
 
     const nftSelected = {
       ownerAddress: nftCollection[indx].current_owners[0].address,
       nftContract: nftCollection[indx].contract_address,
       tokenId: nftCollection[indx].id,
-      imgUrl: nftCollection[indx].metadata?.image,
+      imgUrl: nftCollection[indx].image,
     };
 
     dispatch(selectNft(nftSelected));
@@ -102,7 +103,7 @@ function DisplayNfts() {
         )}
         {Number(Iscontract) === 0 && isNftsOwned === null && (
           <div className={styles.nftOwner}>
-            <button onClick={getNftHandler}>fetch NFTs</button>
+            <button onClick={getNftHandler}>select a NFT</button>
           </div>
         )}
         {isNftsOwned === false && noNfts && (

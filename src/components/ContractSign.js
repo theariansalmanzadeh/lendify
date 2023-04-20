@@ -134,7 +134,7 @@ function ContractSign({ setLoading }) {
   if (!isContract)
     return (
       <div className={styles.contractDetails}>
-        <p>No Contract signed</p>
+        <p>No fund requested</p>
       </div>
     );
   else if (isContract) {
@@ -166,7 +166,7 @@ function ContractSign({ setLoading }) {
           onClick={nftTransferHandler}
           className={!isNftOwner ? styles.nftTransfer : styles.deactive}
         >
-          transfer Nft
+          get funds
         </button>
         <div className={styles.refundContract}>
           <button

@@ -31,6 +31,9 @@
       & li {
         padding: 0.2rem 0;
         font-size: 0.9rem;
+        & .cautions {
+          color: $dangerCol;
+        }
       }
     }
     & .avatarWrapper {
@@ -45,6 +48,12 @@
       padding-top: 3rem;
       & span {
         color: $thirdCol;
+      }
+      @media screen and (max-width: 760px) {
+        padding-top: 2rem;
+        & span {
+          font-size: 0.8rem;
+        }
       }
     }
   }

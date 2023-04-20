@@ -70,6 +70,8 @@ function SelectedNft() {
     }
   };
 
+  console.log(selectedNft.imgUrl);
+
   return (
     <div className={styles.selectLenderSection}>
       <div className={styles.nftImgWrapper}>

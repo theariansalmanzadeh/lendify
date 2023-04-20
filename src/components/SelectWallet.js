@@ -28,9 +28,13 @@ function SelectWallet({ toggleModal }) {
     try {
       await window.ethereum.request({ method: "eth_requestAccounts" });
 
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      console.log(provider);
+      const provider = new ethers.providers.Web3Provider(
+        window.ethereum,
+        "any"
+      );
+
       const chain = await provider.getNetwork();
+      console.log(`0x${chainID.toString(16)}`, chain.chainId);
 
       if (chain.chainId !== `0x${chainID.toString(16)}`)
         await window.ethereum.request({
@@ -38,14 +42,18 @@ function SelectWallet({ toggleModal }) {
           params: [{ chainId: `0x${chainID.toString(16)}` }],
         });
 
+      const chainConnected = await provider.getNetwork();
       const addressAccount = await provider.listAccounts();
 
       const signer = provider.getSigner();
-      console.log(signer, addressAccount);
+      console.log(signer, provider, addressAccount);
 
       dispatch(setAccountAddress(addressAccount));
       dispatch(
-        setNetWork({ netWorkName: chain.name, netWorkId: chain.chainId })
+        setNetWork({
+          netWorkName: chainConnected.name,
+          netWorkId: chainConnected.chainId,
+        })
       );
       dispatch(setProvider(provider));
       dispatch(setSigner(signer));

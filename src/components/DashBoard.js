@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "../styles/sass/pages/dashboard.module.scss";
-import avatar from "../assets/avatar.png";
+import avatar from "../assets/avatar.webp";
 import ContractSign from "./ContractSign.js";
 import TransactionLoader from "./TransactionLoader.js";
 
@@ -35,19 +35,19 @@ function DashBoard() {
         </p>
         {isContract && (
           <div>
-            <h5>How to use</h5>
+            <h5>How to get funds</h5>
 
             <ol>
               <li>
                 for getting the amount requested, first you have to transfer the
-                ownership of your nft by clicking on the transfer Botton
+                ownership of your nft by clicking on the get fund botton
               </li>
               <li>after that wait until you can get the fund</li>
               <li>
                 if you want to re-pay the borrowed fund you can do it by
                 clicking on the repay botton
               </li>
-              <li>
+              <li className={styles.cautions}>
                 the amount you must pay back is the initial amount plus 10%
                 intrest rate. you have 60 days for your repay
               </li>

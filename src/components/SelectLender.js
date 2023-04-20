@@ -53,7 +53,7 @@ function SelectLender() {
 
   return (
     <div className={styles.lenderSection}>
-      <p>Best options</p>
+      <p>Best options (choose a ether lender)</p>
       <div>
         {isLoading && <LoadingLender />}
         <ul onClick={selectLenderHandler}>
