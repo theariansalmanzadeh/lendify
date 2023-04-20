@@ -62,6 +62,14 @@ function Navbar() {
             <NavLink
               className={linkClasses}
               onClick={() => setIsshowMenu(false)}
+              to="/about"
+              end
+            >
+              About
+            </NavLink>
+            <NavLink
+              className={linkClasses}
+              onClick={() => setIsshowMenu(false)}
               to="/how-to"
               end
             >

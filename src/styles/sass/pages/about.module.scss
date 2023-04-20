@@ -1,0 +1,45 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+@import "../components/button.module.scss";
+
+.aboutPage {
+  width: 100%;
+  padding: 3rem 2rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  @include lendingPage;
+  & h3 {
+    margin: 0rem 0 2rem 3rem;
+    font-size: 2rem;
+    color: $thirdCol;
+  }
+  & p {
+    color: $whitePrimaryCol;
+    margin: 1rem 0;
+    & span {
+      color: $fourthCol;
+    }
+  }
+  & .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &:nth-of-type(1) {
+      justify-content: flex-start;
+    }
+    &:nth-of-type(3) {
+      justify-content: flex-end;
+    }
+    & .imgWrapper {
+      width: 50%;
+      height: 50%;
+      overflow: hidden;
+      border: 1px solid $fourthCol;
+      & img {
+        width: 100%;
+        object-position: center;
+        object-fit: cover;
+      }
+    }
+  }
+}
