@@ -1,10 +1,12 @@
 @import "../utils/variables.scss";
 @import "../components/button.module.scss";
+@import "../utils/mixins.scss";
 
 .selectLenderSection {
   width: 100%;
   height: 100%;
   color: $whitePrimaryCol;
+  @include lendingPage;
 
   & .nftImgWrapper {
     width: 100%;
@@ -14,11 +16,21 @@
     margin-bottom: 3rem;
     opacity: 0;
     animation: fadeIn 1s forwards ease-in-out;
+
     & img {
       width: 50%;
       border-radius: 0.8rem;
       object-fit: cover;
       box-shadow: 0px 1rem 1rem rgba(0, 0, 0, 0.3);
+    }
+    @media screen and (max-width: 767px) {
+      width: 90%;
+      height: 40vh;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+      & img {
+        width: 100%;
+      }
     }
   }
   & .nftDetails {
@@ -45,6 +57,9 @@
       align-self: flex-end;
       background-color: $thirdCol;
       color: $primaryCol;
+    }
+    @media screen and (max-width: 768px) {
+      align-self: flex-start;
     }
   }
   & .deactive {

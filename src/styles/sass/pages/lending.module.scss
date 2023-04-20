@@ -31,6 +31,12 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 1rem;
+    height: 140vh;
+    box-sizing: border-box;
+  }
   & .nftInUse {
     font-size: 1.6rem;
     color: $fourthCol;
@@ -49,6 +55,9 @@
       display: inline-block;
       font-size: 1.6rem;
       align-self: flex-start;
+      @media screen and (max-width: 768px) {
+        font-size: 1.5rem;
+      }
     }
     & .notFound {
       display: flex;
@@ -67,10 +76,12 @@
       gap: 1.8rem;
       flex-wrap: wrap;
       list-style: none;
+
       & li {
         width: 10vw;
         height: 10vw;
         background-color: black;
+
         &:hover {
           outline: 1px solid $fourthCol;
         }
@@ -93,14 +104,28 @@
           }
         }
       }
+      @media screen and (max-width: 768px) {
+        padding-left: 0rem;
+        & li {
+          width: 20vw;
+          height: 20vw;
+        }
+      }
     }
   }
   & .nftSelectedSection {
     height: 100%;
-    width: 50%;
+
+    @media screen and (max-width: 768px) {
+      height: 56%;
+    }
   }
   & .liquidityProviders {
     flex-basis: 40%;
     height: 100%;
+    @media screen and (max-width: 768px) {
+      flex-basis: 35%;
+      // height: 100%;
+    }
   }
 }
