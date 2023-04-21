@@ -79,7 +79,7 @@ function Navbar() {
         </ul>
       }
       <div className={styles.logoWrapper}>
-        <p className={styles.logoName}>ledify</p>
+        <p className={styles.logoName}>lendify</p>
       </div>
     </div>
   );

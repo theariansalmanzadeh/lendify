@@ -22,6 +22,13 @@ function LiquidityProvider() {
     (state) => state.contractInfo.contractQueen
   );
 
+  const isDisabled = (provideravailability) => {
+    if (provideravailability === false) return true;
+    else if (provideravailability === undefined) {
+      return false;
+    }
+  };
+
   useEffect(() => {
     if (!refresh) return;
     if (accountAddress === "") return;
@@ -50,7 +57,7 @@ function LiquidityProvider() {
     setAddPosition(true);
   };
 
-  console.log(positionPool);
+  console.log(positionPool.available);
   return (
     <React.Fragment>
       <ChainSupport />
@@ -79,15 +86,15 @@ function LiquidityProvider() {
           </div>
           {accountAddress !== "" && (
             <button
-              disabled={!positionPool.available}
+              disabled={isDisabled(positionPool.available)}
               onClick={setPositionHandler}
               className={
-                positionPool.available
+                !isDisabled(positionPool.available)
                   ? `${styles.liqudity}`
                   : `${styles.liqudity} ${styles.deactive}`
               }
             >
-              Add liqudity
+              Add liquidity
             </button>
           )}
         </div>
