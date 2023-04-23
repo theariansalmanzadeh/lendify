@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/lendify/static/css/main.1309397c.css",
+    "main.js": "/lendify/static/js/main.4a5a6773.js",
+    "static/js/787.af4d1174.chunk.js": "/lendify/static/js/787.af4d1174.chunk.js",
+    "static/media/homepage.png": "/lendify/static/media/homepage.c51d13b88e8dd2a2d768.png",
+    "static/media/avatar.webp": "/lendify/static/media/avatar.62df079b8cc421023dc9.webp",
+    "static/media/time-left-svgrepo-com.svg": "/lendify/static/media/time-left-svgrepo-com.b3b8cd8d8906e107150f20189edb0898.svg",
+    "index.html": "/lendify/index.html",
+    "main.1309397c.css.map": "/lendify/static/css/main.1309397c.css.map",
+    "main.4a5a6773.js.map": "/lendify/static/js/main.4a5a6773.js.map",
+    "787.af4d1174.chunk.js.map": "/lendify/static/js/787.af4d1174.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1309397c.css",
+    "static/js/main.4a5a6773.js"
+  ]
+}
