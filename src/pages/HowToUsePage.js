@@ -1,5 +1,8 @@
 import React from "react";
 import styles from "../styles/sass/pages/about.module.scss";
+import howtoouse1 from "../assets/howtouse1.JPG";
+import howtoouse2 from "../assets/howtouse2.JPG";
+import howtoouse3 from "../assets/howtouse3.JPG";
 
 function HowToUsePage() {
   return (
@@ -11,7 +14,7 @@ function HowToUsePage() {
       </p>
       <div className={styles.container}>
         <div className={styles.imgWrapper}>
-          <img src="./images/howtouse1.jpg" alt="connect wallet" />
+          <img src={howtoouse1} alt="connect wallet" />
         </div>
       </div>
       <p>
@@ -24,7 +27,7 @@ function HowToUsePage() {
       </p>
       <div className={styles.container}>
         <div className={styles.imgWrapper}>
-          <img src="./images/howtouse2.jpg" alt="connect wallet" />
+          <img src={howtoouse2} alt="connect wallet" />
         </div>
       </div>
       <p>
@@ -35,7 +38,7 @@ function HowToUsePage() {
       </p>
       <div className={styles.container}>
         <div className={styles.imgWrapper}>
-          <img src="./images/howtouse3.jpg" alt="connect wallet" />
+          <img src={howtoouse3} alt="connect wallet" />
         </div>
       </div>
       <p>

@@ -4,6 +4,7 @@ import styles from "../styles/sass/pages/tutorial.module.scss";
 import { FaExchangeAlt } from "react-icons/fa";
 import { BsSafe2Fill } from "react-icons/bs";
 import timer from "../Svgs/time-left-svgrepo-com.svg";
+import nftImg from "../assets/nft2.jfif";
 
 function TutorialPage() {
   return (
@@ -19,7 +20,7 @@ function TutorialPage() {
             </p>
           </div>
           <div className={styles.imgWrapper}>
-            <img src="./images/nft2.jfif" alt="a nft" />
+            <img src={nftImg} alt="a nft" />
           </div>
         </div>
         <div className={styles.infoWrapper}>

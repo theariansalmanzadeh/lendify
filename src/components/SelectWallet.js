@@ -11,6 +11,8 @@ import {
 import styles from "../styles/sass/layout/sellectWallet.module.scss";
 import Loading from "./Loading.js";
 import { chainID } from "../utils/contractInfo";
+import metamaskImg from "../assets/metamask.png";
+import coinBaseImg from "../assets/coinbase.webp";
 
 function SelectWallet({ toggleModal }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -87,14 +89,14 @@ function SelectWallet({ toggleModal }) {
             }}
           >
             <button className="wallet meta">
-              <img src="./images/metamask.png" alt="metamask logo" />
+              <img src={metamaskImg} alt="metamask logo" />
               MetaMask
             </button>
             <button
               disabled={true}
               className={`wallet coin ${styles.disabledWallet}`}
             >
-              <img src="./images/coinbase.webp" alt="coinbase logo" />
+              <img src={coinBaseImg} alt="coinbase logo" />
               CoinBase
             </button>
           </div>
