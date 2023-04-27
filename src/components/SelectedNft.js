@@ -30,8 +30,6 @@ function SelectedNft() {
     ({ contractInfo }) => contractInfo.contractQueen
   );
 
-  // console.log(factoryContract);
-
   const signContractHandler = async () => {
     const nonce = await signer.getTransactionCount();
     console.log(nonce);
@@ -70,7 +68,7 @@ function SelectedNft() {
     }
   };
 
-  console.log(selectedNft.imgUrl);
+  console.log(isLender);
 
   return (
     <div className={styles.selectLenderSection}>

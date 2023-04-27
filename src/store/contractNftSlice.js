@@ -35,7 +35,7 @@ export const contractNftSlice = createSlice({
       state.contract = action.payload;
     },
     selectLender(state, action) {
-      state.isLenderSelected = true;
+      state.isLenderSelected = action.payload;
     },
     setNftLenderContract(state, action) {
       state.contractLenderAddress = action.payload;

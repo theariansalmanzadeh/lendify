@@ -21,13 +21,17 @@ function SelectLender() {
 
   const selectLenderHandler = async (event) => {
     const target = event.target;
+    const container = target.closest("ul");
+    console.log(container);
+
     const elem = target.closest("li");
     const address = elem.getAttribute("data-set-lenderaddress");
     const amount = elem.getAttribute("data-set-eth");
-    const indexLp = await factoryContract.addressToindexLender(address);
-    console.log(Number(indexLp));
 
-    setIsSelected(Number(indexLp));
+    const indexLp = await factoryContract.addressToindexLender(address);
+    console.log(Number(indexLp), address);
+
+    setIsSelected(address);
     dispatch(selectLender(true));
     dispatch(setIndexLp(Number(indexLp)));
     dispatch(setEthAmount(amount));
@@ -37,19 +41,24 @@ function SelectLender() {
     (async () => {
       try {
         setIsLoading(true);
+
         const totalLenders = await factoryContract.getTotalLpinfos();
 
         const availableLenders = totalLenders.filter(
           (lender) => lender.available
         );
         setTotalLenders(availableLenders);
-        console.log(availableLenders);
+
         setIsLoading(false);
       } catch (e) {
         setIsLoading(false);
       }
     })();
   }, []);
+
+  useEffect(() => {
+    dispatch(selectLender(false));
+  }, [dispatch]);
 
   return (
     <div className={styles.lenderSection}>
@@ -61,7 +70,7 @@ function SelectLender() {
             return (
               <li
                 className={
-                  Number(isSelected) === indx ? `${styles.selected}` : ""
+                  isSelected === lender.addr ? `${styles.selected}` : ""
                 }
                 key={indx}
                 data-set-lenderaddress={lender.addr}
